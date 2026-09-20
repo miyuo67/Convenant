@@ -2,7 +2,7 @@
 
 
 /*MOSTRA A VIDA DO JOGADOR E DO BOSS*/
-void exibirstatus (float vidajogador, int vidaboss) {
+void exibirstatus (float vidajogador, float vidaboss) {
 
     printf("\nStatus da Batalha\n");
     printf("\nSua vida: %.2f\n", vidajogador);
@@ -16,6 +16,7 @@ void mostrarMenu() {
     printf("\n2- Yetzirah (10 de dano)\n");
     printf("\n3- Atziluth (20 de dano)\n");
     printf("\n4- Dura Lex Sed Lex (20 de dano)\n");
+    printf("\n5- Usar Escudo da Guarda Áurea e se curar (0 de dano, 15 de HP restaurado )\n");
     printf("\nEscolha: \n");
 }
 
@@ -45,7 +46,7 @@ void batalha(float vidaJogador, float vidaboss, int turno) {
         return;
     }
 
-    printf("\nTurno %d:\n,", turno);
+    printf("\nTurno %d:\n", turno);
     exibirstatus(vidaJogador, vidaboss);
     mostrarMenu();
 
@@ -88,7 +89,7 @@ void batalha(float vidaJogador, float vidaboss, int turno) {
     }
 
 
-
+ /*aplica o dano no Boss*/
     vidaboss = vidaboss - danoJogador;
 
     printf("\nVoce causou %d de dano!\n", danoJogador);
@@ -110,12 +111,14 @@ void batalha(float vidaJogador, float vidaboss, int turno) {
     return;
     }
 
+ /*turno do Boss*/
     printf("\nTURNO DO BOSS\n");
     printf("\nO Boss atacou voce!\n");
     printf("\nO Boss causou %d de dano!\n", danoBoss);
 
     vidaJogador = vidaJogador - danoBoss;
 
+    /*CASO RECURSIVO: a funcao batalha chama ela mesma para iniciar o proximo turno*/
     batalha(vidaJogador, vidaboss, turno + 1);
 
 
@@ -133,6 +136,7 @@ int main()
     printf("\nMercurius: Ah… finalmente, o homem que carrega o céu sobre os ombros. ");
     printf("\nReinhard: E você deve ser o homem que se esconde além dele. ");
 
+    /*inicia a batalha no turno 1*/
     batalha(vidaJogador, vidaboss, 1);
 
     printf("\nFim do jogo.\n");
