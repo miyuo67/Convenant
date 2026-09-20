@@ -1,27 +1,34 @@
 #include <stdio.h>
 
+
+/*MOSTRA A VIDA DO JOGADOR E DO BOSS*/
 void exibirstatus (float vidajogador, int vidaboss) {
 
-    printf("Status da Batalha\n");
-    printf("Sua vida: %.2f\n", vidajogador);
-    printf("Vida do Boss: %.2f\n", vidaboss);
+    printf("\nStatus da Batalha\n");
+    printf("\nSua vida: %.2f\n", vidajogador);
+    printf("\nVida do Boss: %.2f\n", vidaboss);
 }
 
+/* Mostra os ataques disponiveis */
 void mostrarMenu() {
 
-    printf("1- Sorcery (15 de dano)");
-    printf("2- Yetzirah (10 de dano)");
-    printf("3- Atziluth (20 de dano)");
-    printf("4- Dura Lex Sed Lex (20 de dano)");
-    printf("Escolha: ");
+    printf("\n1- Sorcery (15 de dano)\n");
+    printf("\n2- Yetzirah (10 de dano)\n");
+    printf("\n3- Atziluth (20 de dano)\n");
+    printf("\n4- Dura Lex Sed Lex (20 de dano)\n");
+    printf("\nEscolha: \n");
 }
 
-void batalha(int vidaJogador, int vidaBoss, int turno) {
+
+/* Funcao recursiva que controla a batalha */
+void batalha(int vidaJogador, int vidaboss, int turno) {
 
     int escolha;
     int danoJogador = 0;
     int danoBoss = 15;
 
+
+    /* CASO BASE: jogador foi derrotado */
     if (vidaJogador <= 0) {
         printf("Derrota.");
         printf("Reinhard: Foi uma boa luta, meu amigo, mas você ainda não é páreo.");
@@ -29,17 +36,20 @@ void batalha(int vidaJogador, int vidaBoss, int turno) {
         return;
     }
 
-    if (vidaBoss <=0) {
+    /* CASO BASE: Boss foi derrotado */
+    if (vidaboss <=0) {
         printf("Vitória.");
         printf("Mecurius:....");
     
         return;
     }
 
-    printf("Turno %d:\n,", turno);
-    exibirstatus(vidaJogador, vidaBoss);
+    printf("\nTurno %d:\n,", turno);
+    exibirstatus(vidaJogador, vidaboss);
     mostrarMenu();
 
+
+    /* JOGADOR PODE ESCOLHER ENTRE ATACAR E DEFENDER */
     scanf("%d", &escolha);
     switch(escolha) {
         case 1:
@@ -63,10 +73,23 @@ void batalha(int vidaJogador, int vidaBoss, int turno) {
         break;
         
         default:
-        printf("Escolha inválida. Tente novamente.\n");
+        printf("\nEscolha inválida. Tente novamente.\n");
 
-        batalha(vidaJogador, vidaBoss, turno);
+        batalha(vidaJogador, vidaboss, turno);
         return;
+    }
+
+
+
+    vidaboss = vidaboss - danoJogador;
+
+    printf("\nVoce causou %d de dano!\n", danoJogador);
+
+    if (vidaboss <=0)
+    {
+
+
+
     }
 
 
@@ -74,8 +97,8 @@ void batalha(int vidaJogador, int vidaBoss, int turno) {
 
 int main()
 {
-    float vida_jogador = 100;
-    float vida_boss = 200;
+    float vidaJogador = 100;
+    float vidaboss = 200;
     float dano_boss = 15.0;
 
     //Fala dos personagens
