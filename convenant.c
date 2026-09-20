@@ -21,10 +21,11 @@ void mostrarMenu() {
 
 
 /* Funcao recursiva que controla a batalha */
-void batalha(int vidaJogador, int vidaboss, int turno) {
+void batalha(float vidaJogador, float vidaboss, int turno) {
 
     int escolha;
     int danoJogador = 0;
+    int escudo = 0;
     int danoBoss = 15;
 
 
@@ -72,6 +73,13 @@ void batalha(int vidaJogador, int vidaboss, int turno) {
         printf("");
         break;
         
+        case 5:
+        danoJogador = 0;
+        vidaJogador = vidaJogador + 15;
+        escudo = 1;
+        printf("");
+        break;
+
         default:
         printf("\nEscolha inválida. Tente novamente.\n");
 
@@ -87,10 +95,28 @@ void batalha(int vidaJogador, int vidaboss, int turno) {
 
     if (vidaboss <=0)
     {
-
-
-
+    printf("\nVITORIA!\n");
+    printf("\nVoce derrotou o Boss!\n");
+    printf("\nTurnos utilizados: %d\n", turno);
+    return;
     }
+
+    if (escudo == 1) {
+    printf("\nVoce usou o escudo da Guarda Áurea!\n");
+    printf("\nVoce recuperou 15 de HP!\n");
+    printf("\nO ataque do Boss foi bloqueado!\n");
+
+    batalha(vidaJogador, vidaboss, turno + 1);
+    return;
+    }
+
+    printf("\nTURNO DO BOSS\n");
+    printf("\nO Boss atacou voce!\n");
+    printf("\nO Boss causou %d de dano!\n", danoBoss);
+
+    vidaJogador = vidaJogador - danoBoss;
+
+    batalha(vidaJogador, vidaboss, turno + 1);
 
 
 }
@@ -99,13 +125,17 @@ int main()
 {
     float vidaJogador = 100;
     float vidaboss = 200;
-    float dano_boss = 15.0;
+    
+    printf("\nBOSS BATTLE EM C\n");
+    printf("\nUm Boss apareceu!\n");
+    printf("\nPrepare-se para a batalha!\n");
 
-    //Fala dos personagens
-    printf("Mercurius: Ah… finalmente, o homem que carrega o céu sobre os ombros. ");
-    printf("Reinhard: E você deve ser o homem que se esconde além dele. ");
-    printf("Daniel entrou no codigo");
-    printf("João entrou no codigo");
+    printf("\nMercurius: Ah… finalmente, o homem que carrega o céu sobre os ombros. ");
+    printf("\nReinhard: E você deve ser o homem que se esconde além dele. ");
+
+    batalha(vidaJogador, vidaboss, 1);
+
+    printf("\nFim do jogo.\n");
 
     return 0;
 }
