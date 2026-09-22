@@ -22,7 +22,9 @@ Recursividade
 Um dos principais conceitos de programação utilizados no projeto é a recursividade.
 A função responsável pela batalha chama a si mesma para iniciar o próximo turno, permitindo representar o ciclo do combate por meio de chamadas recursivas.
 A recursividade é encerrada quando uma das condições de término é atingida:
+
 Vida do jogador =< 0: o jogador é derrotado.
+
 Vida do Boss =< 0: o jogador vence a batalha.
 
 Dessa forma, o projeto utiliza a batalha como uma aplicação prática do conceito de recursividade direta, além de trabalhar com funções, estruturas condicionais, switch/case, entrada de dados e gerenciamento de variáveis em C.
