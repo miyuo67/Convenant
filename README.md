@@ -1,4 +1,4 @@
-# Convenant
+# Luta em turnos
 
 Decidimos desenvolver um jogo de batalha por turnos no qual o jogador enfrenta um Boss em um combate que continua até que um dos dois seja derrotado.
 Durante cada turno, o jogador realiza sua ação primeiro, podendo escolher entre diferentes ataques ou utilizar o Escudo da Guarda Áurea, que permite recuperar pontos de vida e bloquear o ataque do Boss. Em seguida, caso o Boss ainda esteja vivo e o escudo não tenha sido utilizado, ele realiza seu ataque contra o jogador. Esse ciclo se repete até que uma das condições de vitória ou derrota seja atingida.
