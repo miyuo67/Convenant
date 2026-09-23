@@ -20,7 +20,7 @@ Para isso, o dano causado pelo Boss aumenta progressivamente ao longo dos turnos
 Dano do Boss × 0,25
 Dessa forma, conforme a batalha avança, o jogador precisa tomar decisões cada vez mais cuidadosas para conseguir sobreviver.
 O dano causado pelo jogador também foi planejado para manter o equilíbrio do combate. Cada ataque possui uma quantidade de dano específica, permitindo que o jogador escolha entre diferentes estratégias durante a batalha.
-Além dos ataques, o jogador possui a opção de utilizar o Escudo da Guarda Áurea, que não causa dano, mas recupera pontos de vida e impede o ataque do Boss naquele turno. Essa mecânica adiciona uma escolha defensiva ao combate, permitindo que o jogador decida entre causar dano ou priorizar sua sobrevivência.
+Além dos ataques, o jogador possui a opção de utilizar a defesa e cura, que não causa dano, mas recupera pontos de vida e impede o ataque do Boss naquele turno. Essa mecânica adiciona uma escolha defensiva ao combate, permitindo que o jogador decida entre causar dano ou priorizar sua sobrevivência.
 
 Inspirações
 
